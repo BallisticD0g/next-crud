@@ -8,17 +8,17 @@ function RemoveBtn({ id }) {
   const router = useRouter();
 
   const removeTopic = async () => {
-    const confirmed = confirm('Are you sure?')
+    // const confirmed = confirm('Are you sure?')
 
-    if (confirmed) {
-     const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
-        method: "DELETE",
-      });
-      if (res.ok){
-        router.refresh();
-      }
-    }
-
+    // if (confirmed) {
+    //  const res = await fetch(`http://localhost:3000/api/topics?id=${id}`, {
+    //     method: "DELETE",
+    //   });
+    //   if (res.ok){
+    //     router.refresh();
+    //   }
+    // }
+    return{}
   };
 
   return (
