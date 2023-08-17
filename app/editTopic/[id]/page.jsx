@@ -7,7 +7,7 @@ const getTopicById = async (id) => {
         cache: 'no-store',
       });
       if (!res.ok) {
-        throw new Error("Faild to fetch topic 🤯")
+        throw new Error("Faild to fetch topic")
       }
 
       return res.json();

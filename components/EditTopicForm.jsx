@@ -22,7 +22,7 @@ function EditTopicForm({ id, title, description }) {
             });
 
             if (!res.ok) {
-                throw new Error("Failed to update topic 😦");
+                throw new Error("Failed to update topic");
             }
             router.refresh();
             router.push('/');

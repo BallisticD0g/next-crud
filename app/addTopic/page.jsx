@@ -29,7 +29,7 @@ function AddTopic() {
                 router.refresh();
                 router.push('/');
             } else {
-                throw new Error("Faild to create a Topic 🤯");
+                throw new Error("Faild to create a Topic");
             }
         } catch (err) {
             console.log(err)
