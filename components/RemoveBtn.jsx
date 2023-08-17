@@ -23,7 +23,7 @@ function RemoveBtn({ id }) {
 
   return (
    <button 
-  //  onClick={removeTopic} 
+   onClick={removeTopic} 
    className="text-red-400">
     <HiOutlineTrash size={24} />
    </button>
