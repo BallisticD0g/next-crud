@@ -10,30 +10,31 @@ function EditTopicForm({ id, title, description }) {
     const router = useRouter();
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
-        // try {
-        //     const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-        //         method: "PUT",
-        //         headers: {
-        //             "Content-type": "application-json",
-        //         },
-        //         body: JSON.stringify({newTitle, newDescription}),
-        //     });
+        try {
+            const res = await fetch(`http://check.list.codearena.ca/api/topics/${id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-type": "application-json",
+                },
+                body: JSON.stringify({newTitle, newDescription}),
+            });
 
-        //     if (!res.ok) {
-        //         throw new Error("Failed to update topic 😦");
-        //     }
-        //     router.refresh();
-        //     router.push('/');
-        // } catch (err) {
-        //     console.log(err);
-        // }
-        return{}
+            if (!res.ok) {
+                throw new Error("Failed to update topic 😦");
+            }
+            router.refresh();
+            router.push('/');
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     return (
-        <form onSubmit={handleSubmit} className='flex flex-col gap-3 items-center'>
+        <form 
+        onSubmit={handleSubmit} 
+        className='flex flex-col gap-3 items-center'>
             <input
                 onChange={e => setNewTitle(e.target.value)}
                 value={newTitle}

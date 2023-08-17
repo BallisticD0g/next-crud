@@ -9,32 +9,31 @@ function AddTopic() {
     const router = useRouter();
 
     const handleSubmit = async (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
-        // if (!title || !description) {
-        //     alert("Title and description are required.");
-        //     return;
-        // }
+        if (!title || !description) {
+            alert("Title and description are required.");
+            return;
+        }
 
-        // try {
-        //     const res = await fetch(
-        //         'http://localhost:3000/api/topics', {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-type": "application/json"
-        //         },
-        //         body: JSON.stringify({title, description}),
-        //     });
-        //     if (res.ok) {
-        //         router.refresh();
-        //         router.push('/');
-        //     } else {
-        //         throw new Error("Faild to create a Topic");
-        //     }
-        // } catch (err) {
-        //     console.log(err)
-        // }
-        return{}
+        try {
+            const res = await fetch(
+                'http://check.list.codearena.ca/api/topics', {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify({title, description}),
+            });
+            if (res.ok) {
+                router.refresh();
+                router.push('/');
+            } else {
+                throw new Error("Faild to create a Topic");
+            }
+        } catch (err) {
+            console.log(err)
+        }
     };
 
     return (

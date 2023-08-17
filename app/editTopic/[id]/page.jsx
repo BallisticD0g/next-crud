@@ -2,19 +2,18 @@ import EditTopicForm from '@/components/EditTopicForm'
 import React from 'react'
 
 const getTopicById = async (id) => {
-  // try {
-  //     const res = await fetch(`http://localhost:3000/api/topics/${id}`, {
-  //       cache: 'no-store',
-  //     });
-  //     if (!res.ok) {
-  //       throw new Error("Faild to fetch topic 🤯");
-  //     }
+  try {
+      const res = await fetch(`http://check.list.codearena.ca/api/topics/${id}`, {
+        cache: 'no-store',
+      });
+      if (!res.ok) {
+        throw new Error("Faild to fetch topic 🤯");
+      }
 
-  //     return res.json();
-  // } catch (err) {
-  //   console.log(err);
-  // }
-  return{}
+      return res.json();
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 async function EditTopic({params}) {
